@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="scE-ls-m17">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="721"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="daY-LC-2mx">
@@ -32,72 +32,90 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inH-5Z-EXf">
+                                <rect key="frame" x="16" y="663" width="361" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v4o-z8-X9d" userLabel="Playing">
+                                        <rect key="frame" x="0.0" y="21" width="361" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="251" text="Label" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PG-X4-6L7" userLabel="Title">
+                                                <rect key="frame" x="8" y="0.0" width="197.66666666666666" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aU9-cS-cru" userLabel="BackwardBtn">
+                                                <rect key="frame" x="205.66666666666666" y="0.0" width="55.999999999999972" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="3e3-Dz-72t"/>
+                                                    <constraint firstAttribute="width" constant="56" id="eK5-L9-pH4"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="backward" catalog="system">
+                                                    <color key="baseForegroundColor" systemColor="secondaryLabelColor"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQ9-nT-ZlS" userLabel="PlayPauseBtn">
+                                                <rect key="frame" x="261.66666666666669" y="0.0" width="43.333333333333314" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="43.329999999999998" id="Gy9-td-2qy"/>
+                                                    <constraint firstAttribute="height" constant="44" id="Msy-9R-miu"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="play" catalog="system" variableValue="0.0"/>
+                                                    <color key="baseForegroundColor" systemColor="secondaryLabelColor"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMY-5B-eEE" userLabel="ForwardBtn">
+                                                <rect key="frame" x="305" y="0.0" width="56" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="56" id="SeL-tY-Kfz"/>
+                                                    <constraint firstAttribute="height" constant="44" id="lBu-Iw-NNu"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="forward" catalog="system">
+                                                    <color key="baseForegroundColor" systemColor="secondaryLabelColor"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="wQ9-nT-ZlS" firstAttribute="leading" secondItem="aU9-cS-cru" secondAttribute="trailing" id="B0g-G0-owd"/>
+                                            <constraint firstItem="hMY-5B-eEE" firstAttribute="leading" secondItem="wQ9-nT-ZlS" secondAttribute="trailing" id="RJd-zw-zJU"/>
+                                            <constraint firstItem="8PG-X4-6L7" firstAttribute="leading" secondItem="v4o-z8-X9d" secondAttribute="leading" constant="8" id="bGP-zL-QYP"/>
+                                            <constraint firstAttribute="trailing" secondItem="hMY-5B-eEE" secondAttribute="trailing" id="jqb-tr-knJ"/>
+                                            <constraint firstItem="aU9-cS-cru" firstAttribute="leading" secondItem="8PG-X4-6L7" secondAttribute="trailing" id="uGs-Ae-eQR"/>
+                                        </constraints>
+                                        <edgeInsets key="layoutMargins" top="0.0" left="8" bottom="0.0" right="0.0"/>
+                                    </stackView>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="CVQ-Fc-YCn"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GkQ-au-AtS">
-                                <rect key="frame" x="0.0" y="765" width="393" height="53"/>
+                                <rect key="frame" x="0.0" y="758" width="393" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="RcU-Ni-HZf"/>
+                                </constraints>
                                 <items>
                                     <tabBarItem title="Music" image="music.note" catalog="system" id="mCb-fB-KfK"/>
                                     <tabBarItem systemItem="more" id="3M1-HZ-BFJ"/>
                                 </items>
                             </tabBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" id="v4o-z8-X9d" userLabel="Playing">
-                                <rect key="frame" x="0.0" y="721" width="393" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="1" image="music.quarternote.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wk4-xR-pss" userLabel="AlbumImg">
-                                        <rect key="frame" x="0.0" y="0.99999999999999645" width="44" height="42.333333333333329"/>
-                                        <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
-                                        <color key="tintColor" systemColor="tertiarySystemFillColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="517-Pu-EJ4"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PG-X4-6L7" userLabel="Title">
-                                        <rect key="frame" x="43.999999999999986" y="0.0" width="193.66666666666663" height="44"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aU9-cS-cru" userLabel="BackwardBtn">
-                                        <rect key="frame" x="237.66666666666663" y="0.0" width="56" height="44"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="backward" catalog="system">
-                                            <color key="baseForegroundColor" systemColor="secondaryLabelColor"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQ9-nT-ZlS" userLabel="PlayPauseBtn">
-                                        <rect key="frame" x="293.66666666666669" y="0.0" width="43.333333333333314" height="44"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <imageReference key="image" image="play" catalog="system" variableValue="0.0"/>
-                                            <color key="baseForegroundColor" systemColor="secondaryLabelColor"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMY-5B-eEE" userLabel="ForwardBtn">
-                                        <rect key="frame" x="337" y="0.0" width="56" height="44"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="forward" catalog="system">
-                                            <color key="baseForegroundColor" systemColor="secondaryLabelColor"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                </subviews>
-                                <viewLayoutGuide key="safeArea" id="Fic-MN-jkh"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="wQ9-nT-ZlS" firstAttribute="leading" secondItem="aU9-cS-cru" secondAttribute="trailing" constant="5.6843418860808015e-14" id="3cD-N2-LJ3"/>
-                                    <constraint firstItem="8PG-X4-6L7" firstAttribute="leading" secondItem="wk4-xR-pss" secondAttribute="trailing" id="9vv-ce-cF6"/>
-                                    <constraint firstItem="hMY-5B-eEE" firstAttribute="leading" secondItem="wQ9-nT-ZlS" secondAttribute="trailing" id="Mia-tQ-RRN"/>
-                                    <constraint firstItem="wk4-xR-pss" firstAttribute="leading" secondItem="Fic-MN-jkh" secondAttribute="leading" id="Qvg-Vq-NTJ"/>
-                                    <constraint firstItem="hMY-5B-eEE" firstAttribute="trailing" secondItem="Fic-MN-jkh" secondAttribute="trailing" id="RI7-6g-IVq"/>
-                                    <constraint firstItem="aU9-cS-cru" firstAttribute="leading" secondItem="8PG-X4-6L7" secondAttribute="trailing" id="XkF-s7-SF7"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kEU-Uh-xUZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="v4o-z8-X9d" firstAttribute="top" secondItem="scE-ls-m17" secondAttribute="bottom" id="E1Q-MR-IDD"/>
                             <constraint firstItem="scE-ls-m17" firstAttribute="leading" secondItem="kEU-Uh-xUZ" secondAttribute="leading" id="KVc-Ok-lct"/>
-                            <constraint firstItem="v4o-z8-X9d" firstAttribute="bottom" secondItem="GkQ-au-AtS" secondAttribute="top" id="Qqu-ce-rez"/>
+                            <constraint firstItem="kEU-Uh-xUZ" firstAttribute="bottom" secondItem="scE-ls-m17" secondAttribute="bottom" id="NC0-OS-pju"/>
                             <constraint firstItem="GkQ-au-AtS" firstAttribute="leading" secondItem="kEU-Uh-xUZ" secondAttribute="leading" id="SoI-gW-k49"/>
                             <constraint firstItem="scE-ls-m17" firstAttribute="trailing" secondItem="kEU-Uh-xUZ" secondAttribute="trailing" id="Y4T-Ef-bzi"/>
                             <constraint firstItem="GkQ-au-AtS" firstAttribute="bottom" secondItem="kEU-Uh-xUZ" secondAttribute="bottom" id="YLu-hN-Akg"/>
@@ -132,19 +150,12 @@
         <image name="backward" catalog="system" width="128" height="77"/>
         <image name="forward" catalog="system" width="128" height="77"/>
         <image name="music.note" catalog="system" width="96" height="128"/>
-        <image name="music.quarternote.3" catalog="system" width="128" height="102"/>
         <image name="play" catalog="system" width="117" height="128"/>
-        <systemColor name="quaternaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.17647058823529413" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="tertiarySystemFillColor">
-            <color red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
