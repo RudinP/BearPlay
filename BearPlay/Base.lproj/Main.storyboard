@@ -22,15 +22,39 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="daY-LC-2mx">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="musicCell" textLabel="2Dz-dy-dIj" detailTextLabel="ADQ-uk-3PJ" imageView="63n-Ix-adU" style="IBUITableViewCellStyleValue1" id="daY-LC-2mx">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="daY-LC-2mx" id="l2V-Ar-WAk">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Dz-dy-dIj">
+                                                    <rect key="frame" x="59" y="15" width="25" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ADQ-uk-3PJ">
+                                                    <rect key="frame" x="340.33333333333331" y="15" width="32.666666666666664" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="music.quarternote.3" catalog="system" id="63n-Ix-adU" userLabel="Album">
+                                                    <rect key="frame" x="20.333333333333336" y="12.333333333333334" width="23.333333333333332" height="18.666666666666668"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="MFs-2M-pK6" id="5VO-nT-ejE"/>
+                                </connections>
                             </tableView>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="848-ID-33Q">
                                 <rect key="frame" x="20" y="668" width="353" height="80"/>
@@ -51,6 +75,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="bZV-Ff-w3q"/>
                                             </constraints>
+                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="backward" catalog="system">
                                                 <color key="baseForegroundColor" systemColor="secondaryLabelColor"/>
@@ -62,11 +87,14 @@
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="GMV-vp-dh3"/>
                                                 <constraint firstAttribute="width" constant="43.329999999999998" id="Gy9-td-2qy"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain">
+                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal">
+                                                <color key="titleColor" systemColor="secondaryLabelColor"/>
                                                 <imageReference key="image" image="play" catalog="system" variableValue="0.0"/>
-                                                <color key="baseForegroundColor" systemColor="secondaryLabelColor"/>
-                                            </buttonConfiguration>
+                                            </state>
+                                            <state key="selected" image="pause" catalog="system"/>
+                                            <state key="highlighted" image="play.fill" catalog="system"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMY-5B-eEE" userLabel="ForwardBtn">
                                             <rect key="frame" x="297" y="15" width="56" height="50"/>
@@ -74,6 +102,7 @@
                                                 <constraint firstAttribute="width" constant="56" id="SeL-tY-Kfz"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="fWP-Zj-F6M"/>
                                             </constraints>
+                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="forward" catalog="system">
                                                 <color key="baseForegroundColor" systemColor="secondaryLabelColor"/>
@@ -158,7 +187,10 @@
         <image name="backward" catalog="system" width="128" height="77"/>
         <image name="forward" catalog="system" width="128" height="77"/>
         <image name="music.note" catalog="system" width="96" height="128"/>
+        <image name="music.quarternote.3" catalog="system" width="128" height="102"/>
+        <image name="pause" catalog="system" width="88" height="128"/>
         <image name="play" catalog="system" width="117" height="128"/>
+        <image name="play.fill" catalog="system" width="117" height="128"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

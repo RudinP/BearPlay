@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4B25B16C2B105BEA008A639B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B25B16B2B105BEA008A639B /* AppDelegate.swift */; };
 		4B25B16E2B105BEA008A639B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B25B16D2B105BEA008A639B /* SceneDelegate.swift */; };
-		4B25B1702B105BEA008A639B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B25B16F2B105BEA008A639B /* ViewController.swift */; };
 		4B25B1732B105BEA008A639B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B25B1712B105BEA008A639B /* Main.storyboard */; };
 		4B25B1752B105BEB008A639B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B25B1742B105BEB008A639B /* Assets.xcassets */; };
 		4B25B1782B105BEB008A639B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B25B1762B105BEB008A639B /* LaunchScreen.storyboard */; };
@@ -20,6 +19,8 @@
 		4B25B18F2B10655A008A639B /* BearPlayWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B25B18E2B10655A008A639B /* BearPlayWidget.swift */; };
 		4B25B1912B10655B008A639B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B25B1902B10655B008A639B /* Assets.xcassets */; };
 		4B25B1952B10655B008A639B /* BearPlayWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4B25B1832B10655A008A639B /* BearPlayWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4BD163362B242C47002F8F8D /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD163352B242C47002F8F8D /* Music.swift */; };
+		4BD1633C2B243833002F8F8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1633B2B243833002F8F8D /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +51,6 @@
 		4B25B1682B105BEA008A639B /* BearPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BearPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B25B16B2B105BEA008A639B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B25B16D2B105BEA008A639B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4B25B16F2B105BEA008A639B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4B25B1722B105BEA008A639B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B25B1742B105BEB008A639B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B25B1772B105BEB008A639B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +63,8 @@
 		4B25B18E2B10655A008A639B /* BearPlayWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearPlayWidget.swift; sourceTree = "<group>"; };
 		4B25B1902B10655B008A639B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B25B1922B10655B008A639B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BD163352B242C47002F8F8D /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		4BD1633B2B243833002F8F8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +109,10 @@
 		4B25B16A2B105BEA008A639B /* BearPlay */ = {
 			isa = PBXGroup;
 			children = (
+				4BD163382B243275002F8F8D /* Model */,
 				4B25B16B2B105BEA008A639B /* AppDelegate.swift */,
+				4BD1633B2B243833002F8F8D /* ViewController.swift */,
 				4B25B16D2B105BEA008A639B /* SceneDelegate.swift */,
-				4B25B16F2B105BEA008A639B /* ViewController.swift */,
 				4B25B1712B105BEA008A639B /* Main.storyboard */,
 				4B25B1742B105BEB008A639B /* Assets.xcassets */,
 				4B25B1762B105BEB008A639B /* LaunchScreen.storyboard */,
@@ -137,6 +140,14 @@
 				4B25B1922B10655B008A639B /* Info.plist */,
 			);
 			path = BearPlayWidget;
+			sourceTree = "<group>";
+		};
+		4BD163382B243275002F8F8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4BD163352B242C47002F8F8D /* Music.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,9 +252,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B25B1702B105BEA008A639B /* ViewController.swift in Sources */,
+				4BD1633C2B243833002F8F8D /* ViewController.swift in Sources */,
 				4B25B16C2B105BEA008A639B /* AppDelegate.swift in Sources */,
 				4B25B16E2B105BEA008A639B /* SceneDelegate.swift in Sources */,
+				4BD163362B242C47002F8F8D /* Music.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
