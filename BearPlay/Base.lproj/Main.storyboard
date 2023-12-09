@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="musicCell" textLabel="2Dz-dy-dIj" detailTextLabel="ADQ-uk-3PJ" imageView="63n-Ix-adU" style="IBUITableViewCellStyleValue1" id="daY-LC-2mx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="musicCell" textLabel="2Dz-dy-dIj" detailTextLabel="ADQ-uk-3PJ" imageView="63n-Ix-adU" style="IBUITableViewCellStyleValue1" id="daY-LC-2mx" customClass="MusicTableViewCell" customModule="BearPlay" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="daY-LC-2mx" id="l2V-Ar-WAk">
@@ -36,20 +36,25 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ADQ-uk-3PJ">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ADQ-uk-3PJ" userLabel="Length Label">
                                                     <rect key="frame" x="340.33333333333331" y="15" width="32.666666666666664" height="14.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="music.quarternote.3" catalog="system" id="63n-Ix-adU" userLabel="Album">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="music.quarternote.3" catalog="system" id="63n-Ix-adU" userLabel="Album Img">
                                                     <rect key="frame" x="20.333333333333336" y="12.333333333333334" width="23.333333333333332" height="18.666666666666668"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="albumImg" destination="63n-Ix-adU" id="IEv-sk-5Rs"/>
+                                            <outlet property="lengthLabel" destination="ADQ-uk-3PJ" id="8df-wV-Ro1"/>
+                                            <outlet property="titleLabel" destination="2Dz-dy-dIj" id="Rgc-tj-ZzY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -161,6 +166,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BearPlay" id="smM-B7-Eax"/>
+                    <connections>
+                        <outlet property="musicTableView" destination="scE-ls-m17" id="cNQ-Rc-DPQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3P-QM-OQF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
