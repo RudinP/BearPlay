@@ -19,6 +19,8 @@ class ViewController: UIViewController{
         self.navigationItem.hidesSearchBarWhenScrolling = false
         
         musicTableView.dataSource = self
+        
+        MusicFetcher.instance.refreshAlbums()
     }
 }
 
