@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AfV-O8-vCx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MCm-kN-kss">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--BearPlay-->
+        <!--MusicViewController-->
         <scene sceneID="WOL-Om-fgY">
             <objects>
-                <viewController id="MFs-2M-pK6" customClass="ViewController" customModule="BearPlay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MFs-2M-pK6" userLabel="MusicViewController" customClass="ViewController" customModule="BearPlay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="omu-E3-0df">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="scE-ls-m17">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="musicCell" textLabel="2Dz-dy-dIj" detailTextLabel="ADQ-uk-3PJ" imageView="63n-Ix-adU" style="IBUITableViewCellStyleValue1" id="daY-LC-2mx" customClass="MusicTableViewCell" customModule="BearPlay" customModuleProvider="target">
@@ -62,7 +62,7 @@
                                 </connections>
                             </tableView>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="848-ID-33Q">
-                                <rect key="frame" x="20" y="668" width="353" height="80"/>
+                                <rect key="frame" x="20" y="684" width="353" height="80"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="g0k-jg-bfR">
                                     <rect key="frame" x="0.0" y="0.0" width="353" height="80"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,46 +138,69 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GkQ-au-AtS">
-                                <rect key="frame" x="0.0" y="758" width="393" height="60"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="RcU-Ni-HZf"/>
-                                </constraints>
-                                <items>
-                                    <tabBarItem title="Music" image="music.note" catalog="system" id="mCb-fB-KfK"/>
-                                    <tabBarItem systemItem="more" id="3M1-HZ-BFJ"/>
-                                </items>
-                            </tabBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kEU-Uh-xUZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="848-ID-33Q" firstAttribute="leading" secondItem="kEU-Uh-xUZ" secondAttribute="leading" constant="20" id="5lD-sK-NV1"/>
-                            <constraint firstItem="GkQ-au-AtS" firstAttribute="top" secondItem="848-ID-33Q" secondAttribute="bottom" constant="10" id="7K3-Rc-7Sb"/>
                             <constraint firstItem="kEU-Uh-xUZ" firstAttribute="trailing" secondItem="848-ID-33Q" secondAttribute="trailing" constant="20" id="KDx-3N-SWG"/>
                             <constraint firstItem="scE-ls-m17" firstAttribute="leading" secondItem="kEU-Uh-xUZ" secondAttribute="leading" id="KVc-Ok-lct"/>
                             <constraint firstItem="kEU-Uh-xUZ" firstAttribute="bottom" secondItem="scE-ls-m17" secondAttribute="bottom" id="NC0-OS-pju"/>
-                            <constraint firstItem="GkQ-au-AtS" firstAttribute="leading" secondItem="kEU-Uh-xUZ" secondAttribute="leading" id="SoI-gW-k49"/>
                             <constraint firstItem="scE-ls-m17" firstAttribute="trailing" secondItem="kEU-Uh-xUZ" secondAttribute="trailing" id="Y4T-Ef-bzi"/>
-                            <constraint firstItem="GkQ-au-AtS" firstAttribute="bottom" secondItem="kEU-Uh-xUZ" secondAttribute="bottom" id="YLu-hN-Akg"/>
-                            <constraint firstItem="GkQ-au-AtS" firstAttribute="trailing" secondItem="kEU-Uh-xUZ" secondAttribute="trailing" id="hhX-bR-KeG"/>
+                            <constraint firstItem="kEU-Uh-xUZ" firstAttribute="bottom" secondItem="848-ID-33Q" secondAttribute="bottom" constant="5" id="dcX-WS-0jJ"/>
                             <constraint firstItem="scE-ls-m17" firstAttribute="top" secondItem="omu-E3-0df" secondAttribute="top" id="u2K-eA-tt8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BearPlay" id="smM-B7-Eax"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="musicTableView" destination="scE-ls-m17" id="cNQ-Rc-DPQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3P-QM-OQF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-260.30534351145036" y="-54.225352112676056"/>
+            <point key="canvasLocation" x="-905" y="-537"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--MoreViewController-->
+        <scene sceneID="Vqj-pV-Jr7">
+            <objects>
+                <viewController id="xZO-ft-5d5" userLabel="MoreViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kjw-S1-Ee3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="YjO-AC-bql"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="qVj-kG-V2G"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e5s-kR-pvh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1538" y="152"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="J1R-Pf-amd">
+            <objects>
+                <tabBarController id="MCm-kN-kss" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xGT-J6-Bnu">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="AfV-O8-vCx" kind="relationship" relationship="viewControllers" id="eeM-XF-xzK"/>
+                        <segue destination="xZO-ft-5d5" kind="relationship" relationship="viewControllers" id="TjH-zL-qSe"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iJd-xF-bcz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2668" y="-192"/>
+        </scene>
+        <!--MusicNavigatorController-->
         <scene sceneID="SbR-vE-Wk5">
             <objects>
-                <navigationController id="AfV-O8-vCx" sceneMemberID="viewController">
+                <navigationController id="AfV-O8-vCx" userLabel="MusicNavigatorController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Music" image="music.note" catalog="system" selectedImage="music.note" id="5Qq-eI-ePZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="fhn-8y-Wz7">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -188,7 +211,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ojD-cf-JIZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1033" y="-54"/>
+            <point key="canvasLocation" x="-1760" y="-537"/>
         </scene>
     </scenes>
     <resources>
