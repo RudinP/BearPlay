@@ -13,6 +13,8 @@ class ViewController: UIViewController{
     
     @IBOutlet weak var nowPlayingTitle: UILabel!
     
+    var selected: Music?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +26,12 @@ class ViewController: UIViewController{
         musicTableView.delegate = self
         
         MusicFetcher.instance.refreshAlbums()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? DetailViewController{
+            vc.music = selected
+        }
     }
 }
 
@@ -45,10 +53,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selected = Music.dummyMusicList[indexPath.row]
+        selected = Music.dummyMusicList[indexPath.row]
         
-        print(selected.title
-        )
-        nowPlayingTitle.text = selected.title
+        print(selected?.title)
+        nowPlayingTitle.text = selected?.title
     }
 }

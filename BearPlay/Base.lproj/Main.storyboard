@@ -177,7 +177,7 @@
         <!--Detail View Controller-->
         <scene sceneID="5Qn-yv-e0x">
             <objects>
-                <viewController id="C17-L1-pqP" userLabel="Detail View Controller" sceneMemberID="viewController">
+                <viewController id="C17-L1-pqP" userLabel="Detail View Controller" customClass="DetailViewController" customModule="BearPlay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tYv-Y2-thu">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -203,18 +203,18 @@
                                 </constraints>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUp-4t-dP4" userLabel="Backward">
-                                <rect key="frame" x="96" y="555" width="56" height="35"/>
+                                <rect key="frame" x="96" y="576" width="56" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="backward.fill" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUm-C0-CzM" userLabel="PlayPause">
-                                <rect key="frame" x="187" y="555" width="19" height="35"/>
+                                <rect key="frame" x="187" y="576" width="19.333333333333343" height="35"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="play.fill" catalog="system"/>
                                 <state key="selected" image="pause.fill" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOD-k5-Vse" userLabel="Forward">
-                                <rect key="frame" x="241" y="555" width="56" height="35"/>
+                                <rect key="frame" x="241.33333333333337" y="576" width="56" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="forward.fill" catalog="system"/>
                             </button>
@@ -230,25 +230,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzX-rB-6dv" userLabel="Artist">
+                                <rect key="frame" x="176" y="540" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QDF-sy-GRn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="QDF-sy-GRn" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dzX-rB-6dv" secondAttribute="trailing" constant="71" id="8A2-OY-73O"/>
                             <constraint firstItem="DOD-k5-Vse" firstAttribute="centerY" secondItem="eUp-4t-dP4" secondAttribute="centerY" id="9Ew-DS-8bL"/>
                             <constraint firstItem="XAA-PV-a17" firstAttribute="top" secondItem="Xaz-v8-HJG" secondAttribute="bottom" constant="18" id="A7a-KL-t3p"/>
                             <constraint firstItem="XAA-PV-a17" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QDF-sy-GRn" secondAttribute="leading" constant="71" id="Chy-Kg-HZq"/>
                             <constraint firstItem="Su3-5e-IIn" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="Dq1-ZW-Iij"/>
+                            <constraint firstItem="QDF-sy-GRn" firstAttribute="leading" relation="lessThanOrEqual" secondItem="dzX-rB-6dv" secondAttribute="leading" constant="71" id="I32-Kp-58T"/>
                             <constraint firstItem="Su3-5e-IIn" firstAttribute="top" secondItem="QDF-sy-GRn" secondAttribute="top" constant="170" id="Jb4-ns-kUE"/>
                             <constraint firstItem="U9W-51-yXf" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="KtF-I6-w0D"/>
                             <constraint firstItem="Xaz-v8-HJG" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="On0-4q-fWO"/>
+                            <constraint firstItem="dzX-rB-6dv" firstAttribute="top" secondItem="XAA-PV-a17" secondAttribute="bottom" constant="5" id="Qgw-hA-Sj2"/>
                             <constraint firstItem="GUm-C0-CzM" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="RKk-tE-OFd"/>
                             <constraint firstItem="eUp-4t-dP4" firstAttribute="top" secondItem="GUm-C0-CzM" secondAttribute="top" id="ReQ-jL-ACF"/>
                             <constraint firstItem="XAA-PV-a17" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="Wee-hP-5pd"/>
-                            <constraint firstItem="GUm-C0-CzM" firstAttribute="top" secondItem="XAA-PV-a17" secondAttribute="bottom" constant="20" id="cWU-cT-cpA"/>
+                            <constraint firstItem="GUm-C0-CzM" firstAttribute="top" secondItem="dzX-rB-6dv" secondAttribute="bottom" constant="15" id="cWU-cT-cpA"/>
                             <constraint firstItem="DOD-k5-Vse" firstAttribute="leading" secondItem="GUm-C0-CzM" secondAttribute="trailing" constant="35" id="d5I-2n-5o1"/>
                             <constraint firstItem="GUm-C0-CzM" firstAttribute="centerY" secondItem="eUp-4t-dP4" secondAttribute="centerY" id="ijS-XN-x23"/>
                             <constraint firstItem="eUp-4t-dP4" firstAttribute="leading" secondItem="QDF-sy-GRn" secondAttribute="leading" constant="96" id="lPc-2a-xtL"/>
                             <constraint firstItem="QDF-sy-GRn" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XAA-PV-a17" secondAttribute="trailing" constant="71" id="rlx-k2-AaE"/>
+                            <constraint firstItem="dzX-rB-6dv" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="sb5-vG-pYq"/>
                             <constraint firstItem="U9W-51-yXf" firstAttribute="top" secondItem="Su3-5e-IIn" secondAttribute="bottom" constant="33" id="v2V-KY-Y0M"/>
                             <constraint firstItem="GUm-C0-CzM" firstAttribute="leading" secondItem="eUp-4t-dP4" secondAttribute="trailing" constant="35" id="vCN-2S-yWi"/>
                             <constraint firstItem="Xaz-v8-HJG" firstAttribute="top" secondItem="U9W-51-yXf" secondAttribute="bottom" constant="18" id="xs8-c0-7NU"/>
@@ -256,6 +266,13 @@
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="albumImg" destination="Su3-5e-IIn" id="P7E-3i-dQT"/>
+                        <outlet property="artistLabel" destination="dzX-rB-6dv" id="AOa-mM-HKN"/>
+                        <outlet property="durationLabel" destination="Xaz-v8-HJG" id="5tj-Om-JcQ"/>
+                        <outlet property="progressBar" destination="U9W-51-yXf" id="3pE-h3-L13"/>
+                        <outlet property="titleLabel" destination="XAA-PV-a17" id="kiq-wr-qrh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8pG-t7-iCT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
