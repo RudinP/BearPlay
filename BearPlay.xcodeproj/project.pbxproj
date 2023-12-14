@@ -113,10 +113,10 @@
 		4B25B16A2B105BEA008A639B /* BearPlay */ = {
 			isa = PBXGroup;
 			children = (
-				4B428C692B297BF3007F90E9 /* Player */,
+				4B428C692B297BF3007F90E9 /* Util */,
 				4BD163382B243275002F8F8D /* Model */,
 				4B25B16B2B105BEA008A639B /* AppDelegate.swift */,
-				4BD1633B2B243833002F8F8D /* ViewController.swift */,
+				4B428C6D2B2AC03D007F90E9 /* ViewController */,
 				4B25B16D2B105BEA008A639B /* SceneDelegate.swift */,
 				4BD1633D2B243AB3002F8F8D /* MusicTableViewCell.swift */,
 				4B25B1712B105BEA008A639B /* Main.storyboard */,
@@ -148,12 +148,20 @@
 			path = BearPlayWidget;
 			sourceTree = "<group>";
 		};
-		4B428C692B297BF3007F90E9 /* Player */ = {
+		4B428C692B297BF3007F90E9 /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				4B428C6A2B297C0E007F90E9 /* MusicFetcher.swift */,
 			);
-			path = Player;
+			path = Util;
+			sourceTree = "<group>";
+		};
+		4B428C6D2B2AC03D007F90E9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BD1633B2B243833002F8F8D /* ViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		4BD163382B243275002F8F8D /* Model */ = {

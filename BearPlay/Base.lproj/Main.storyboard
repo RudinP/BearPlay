@@ -167,6 +167,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="musicTableView" destination="scE-ls-m17" id="cNQ-Rc-DPQ"/>
+                        <outlet property="nowPlayingTitle" destination="8PG-X4-6L7" id="blr-Xz-rQW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3P-QM-OQF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

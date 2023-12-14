@@ -11,6 +11,8 @@ class ViewController: UIViewController{
     
     @IBOutlet weak var musicTableView: UITableView!
     
+    @IBOutlet weak var nowPlayingTitle: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,12 +21,13 @@ class ViewController: UIViewController{
         self.navigationItem.hidesSearchBarWhenScrolling = false
         
         musicTableView.dataSource = self
+        musicTableView.delegate = self
         
         MusicFetcher.instance.refreshAlbums()
     }
 }
 
-extension ViewController: UITableViewDataSource{
+extension ViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Music.dummyMusicList.count
     }
@@ -41,6 +44,11 @@ extension ViewController: UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selected = Music.dummyMusicList[indexPath.row]
+        
+        print(selected.title
+        )
+        nowPlayingTitle.text = selected.title
+    }
 }
-
-
