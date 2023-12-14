@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MusicViewController-->
+        <!--Music View Controller-->
         <scene sceneID="WOL-Om-fgY">
             <objects>
-                <viewController id="MFs-2M-pK6" userLabel="MusicViewController" customClass="ViewController" customModule="BearPlay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MFs-2M-pK6" userLabel="Music View Controller" customClass="ViewController" customModule="BearPlay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="omu-E3-0df">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -161,10 +161,90 @@
             </objects>
             <point key="canvasLocation" x="-905" y="-537"/>
         </scene>
-        <!--MoreViewController-->
+        <!--Detail View Controller-->
+        <scene sceneID="5Qn-yv-e0x">
+            <objects>
+                <viewController id="C17-L1-pqP" userLabel="Detail View Controller" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tYv-Y2-thu">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Su3-5e-IIn" userLabel="AlbumImg">
+                                <rect key="frame" x="71.666666666666686" y="199" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="62U-AM-PMg"/>
+                                    <constraint firstAttribute="height" constant="250" id="L5W-ps-phq"/>
+                                </constraints>
+                            </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="U9W-51-yXf">
+                                <rect key="frame" x="96.666666666666686" y="482" width="200" height="4"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="o15-jM-YTF"/>
+                                </constraints>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUp-4t-dP4" userLabel="Backward">
+                                <rect key="frame" x="96" y="593" width="56" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="backward.fill" catalog="system"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUm-C0-CzM" userLabel="PlayPause">
+                                <rect key="frame" x="187" y="593" width="19" height="35"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="play.fill" catalog="system"/>
+                                <state key="selected" image="pause.fill" catalog="system"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOD-k5-Vse" userLabel="Forward">
+                                <rect key="frame" x="241" y="593" width="56" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="forward.fill" catalog="system"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xaz-v8-HJG" userLabel="Duration">
+                                <rect key="frame" x="173.66666666666666" y="504" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAA-PV-a17">
+                                <rect key="frame" x="180" y="543" width="33" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QDF-sy-GRn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DOD-k5-Vse" firstAttribute="centerY" secondItem="eUp-4t-dP4" secondAttribute="centerY" id="9Ew-DS-8bL"/>
+                            <constraint firstItem="XAA-PV-a17" firstAttribute="top" secondItem="Xaz-v8-HJG" secondAttribute="bottom" constant="18" id="A7a-KL-t3p"/>
+                            <constraint firstItem="QDF-sy-GRn" firstAttribute="bottom" secondItem="GUm-C0-CzM" secondAttribute="bottom" constant="141" id="AGA-Cb-fqO"/>
+                            <constraint firstItem="XAA-PV-a17" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QDF-sy-GRn" secondAttribute="leading" constant="71" id="Chy-Kg-HZq"/>
+                            <constraint firstItem="Su3-5e-IIn" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="Dq1-ZW-Iij"/>
+                            <constraint firstItem="Su3-5e-IIn" firstAttribute="top" secondItem="QDF-sy-GRn" secondAttribute="top" constant="140" id="Jb4-ns-kUE"/>
+                            <constraint firstItem="U9W-51-yXf" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="KtF-I6-w0D"/>
+                            <constraint firstItem="Xaz-v8-HJG" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="On0-4q-fWO"/>
+                            <constraint firstItem="GUm-C0-CzM" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="RKk-tE-OFd"/>
+                            <constraint firstItem="eUp-4t-dP4" firstAttribute="top" secondItem="GUm-C0-CzM" secondAttribute="top" id="ReQ-jL-ACF"/>
+                            <constraint firstItem="XAA-PV-a17" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="Wee-hP-5pd"/>
+                            <constraint firstItem="DOD-k5-Vse" firstAttribute="leading" secondItem="GUm-C0-CzM" secondAttribute="trailing" constant="35" id="d5I-2n-5o1"/>
+                            <constraint firstItem="GUm-C0-CzM" firstAttribute="centerY" secondItem="eUp-4t-dP4" secondAttribute="centerY" id="ijS-XN-x23"/>
+                            <constraint firstItem="eUp-4t-dP4" firstAttribute="leading" secondItem="QDF-sy-GRn" secondAttribute="leading" constant="96" id="lPc-2a-xtL"/>
+                            <constraint firstItem="QDF-sy-GRn" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XAA-PV-a17" secondAttribute="trailing" constant="71" id="rlx-k2-AaE"/>
+                            <constraint firstItem="U9W-51-yXf" firstAttribute="top" secondItem="Su3-5e-IIn" secondAttribute="bottom" constant="33" id="v2V-KY-Y0M"/>
+                            <constraint firstItem="GUm-C0-CzM" firstAttribute="leading" secondItem="eUp-4t-dP4" secondAttribute="trailing" constant="35" id="vCN-2S-yWi"/>
+                            <constraint firstItem="Xaz-v8-HJG" firstAttribute="top" secondItem="U9W-51-yXf" secondAttribute="bottom" constant="18" id="xs8-c0-7NU"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8pG-t7-iCT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-45" y="-537"/>
+        </scene>
+        <!--More View Controller-->
         <scene sceneID="Vqj-pV-Jr7">
             <objects>
-                <viewController id="xZO-ft-5d5" userLabel="MoreViewController" sceneMemberID="viewController">
+                <viewController id="xZO-ft-5d5" userLabel="More View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kjw-S1-Ee3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,10 +276,10 @@
             </objects>
             <point key="canvasLocation" x="-2668" y="-192"/>
         </scene>
-        <!--MusicNavigatorController-->
+        <!--Music Navigator Controller-->
         <scene sceneID="SbR-vE-Wk5">
             <objects>
-                <navigationController id="AfV-O8-vCx" userLabel="MusicNavigatorController" sceneMemberID="viewController">
+                <navigationController id="AfV-O8-vCx" userLabel="Music Navigator Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Music" image="music.note" catalog="system" selectedImage="music.note" id="5Qq-eI-ePZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="fhn-8y-Wz7">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
@@ -216,10 +296,13 @@
     </scenes>
     <resources>
         <image name="backward" catalog="system" width="128" height="77"/>
+        <image name="backward.fill" catalog="system" width="128" height="77"/>
         <image name="forward" catalog="system" width="128" height="77"/>
+        <image name="forward.fill" catalog="system" width="128" height="77"/>
         <image name="music.note" catalog="system" width="96" height="128"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="102"/>
         <image name="pause" catalog="system" width="88" height="128"/>
+        <image name="pause.fill" catalog="system" width="117" height="128"/>
         <image name="play" catalog="system" width="117" height="128"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <systemColor name="secondaryLabelColor">
