@@ -267,9 +267,9 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="albumImg" destination="Su3-5e-IIn" id="P7E-3i-dQT"/>
                         <outlet property="artistLabel" destination="dzX-rB-6dv" id="AOa-mM-HKN"/>
                         <outlet property="durationLabel" destination="Xaz-v8-HJG" id="5tj-Om-JcQ"/>
+                        <outlet property="musicImg" destination="Su3-5e-IIn" id="P7E-3i-dQT"/>
                         <outlet property="progressBar" destination="U9W-51-yXf" id="3pE-h3-L13"/>
                         <outlet property="titleLabel" destination="XAA-PV-a17" id="kiq-wr-qrh"/>
                     </connections>

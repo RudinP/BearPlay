@@ -10,8 +10,7 @@ import UIKit
 class DetailViewController: UIViewController {
 
     var music: Music?
-    
-    @IBOutlet weak var albumImg: UIImageView!
+    @IBOutlet weak var musicImg: UIImageView!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
@@ -25,8 +24,8 @@ class DetailViewController: UIViewController {
     }
     
     func setView(){
-        if let img = music?.albumImg{
-            albumImg.image = img
+        if let img = music?.artwork{
+            musicImg.image = img
         }
         artistLabel.text = music?.artist ?? "anonymous"
         titleLabel.text = music?.title

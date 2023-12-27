@@ -25,8 +25,8 @@ class ViewController: UIViewController{
         musicTableView.dataSource = self
         musicTableView.delegate = self
         
-        MusicFetcher.instance.refreshAlbums()
-    }
+        MusicFetcher.instance.refreshMusics()
+}
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailViewController{
@@ -37,15 +37,16 @@ class ViewController: UIViewController{
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Music.dummyMusicList.count
+        return MusicFetcher.instance.getMusicsCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "musicCell", for: indexPath) as! MusicTableViewCell
+        let music = MusicFetcher.instance.getMusic(at: indexPath.row)
         
-        cell.titleLabel.text = Music.dummyMusicList[indexPath.row].title
-        cell.lengthLabel.text = String(Music.dummyMusicList[indexPath.row].length)
-        if let img = Music.dummyMusicList[indexPath.row].albumImg{
+        cell.titleLabel.text = music.title
+        cell.lengthLabel.text = music.length.formatted()
+        if let img = music.artwork{
             cell.albumImg.image = img
         }
         
@@ -53,9 +54,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selected = Music.dummyMusicList[indexPath.row]
+        selected = MusicFetcher.instance.getMusic(at: indexPath.row)
         
-        print(selected?.title)
         nowPlayingTitle.text = selected?.title
     }
 }

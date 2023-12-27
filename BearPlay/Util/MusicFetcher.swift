@@ -8,42 +8,49 @@
 import Foundation
 import MediaPlayer
 
-struct Album{
-    var title: String
-    var artist: String
-    var artwork: UIImage
-}
 class MusicFetcher{
 
     static let instance = MusicFetcher()
     
-    private var albumsCollection: [MPMediaItemCollection]?
-    private var albums = [Album]()
+    private var musicsCollection: [MPMediaItemCollection]?
+    private var musics = [Music]()
     
-    func refreshAlbums(){
-        self.makeAlbumsQuery()
-        self.setAlbums()
+    func getMusic(at index: Int) -> Music {
+        if index < 0 || index >= musics.count {
+            return Music("", "", UIImage(), 0)
+        }
+        return musics[index]
     }
     
-    private func makeAlbumsQuery(){
-        if let collections = MPMediaQuery.albums().collections{
-            self.albumsCollection = collections
+    func getMusicsCount() -> Int{
+        return musics.count
+    }
+    
+    func refreshMusics(){
+        self.makeMusicsQuery()
+        self.setMusics()
+    }
+    
+    private func makeMusicsQuery(){
+        if let collections = MPMediaQuery.songs().collections{
+            self.musicsCollection = collections
         } else {
-            self.albumsCollection = nil
+            self.musicsCollection = nil
         }
     }
     
-    private func setAlbums(){
-        albums.removeAll()
-        albumsCollection?.forEach({libraryAlbumItem in
-            let libraryRepresentativeItem = libraryAlbumItem.representativeItem
-            let newAlbumTitle = libraryRepresentativeItem?.albumTitle ?? ""
-            let newAlbumArtist = libraryRepresentativeItem?.albumArtist ?? ""
-            let newAlbumArtwork = libraryRepresentativeItem?.artwork?.image(at: CGSize(width: 500, height: 500)) ?? UIImage()
+    private func setMusics(){
+        musics.removeAll()
+        musicsCollection?.forEach({libraryMusicItem in
+            let libraryRepresentativeItem = libraryMusicItem.representativeItem
+            let newMusicTitle = libraryRepresentativeItem?.title ?? ""
+            let newMusicArtist = libraryRepresentativeItem?.artist ?? ""
+            let newMusicArtwork = libraryRepresentativeItem?.artwork?.image(at: CGSize(width: 500, height: 500)) ?? UIImage()
+            let newMusicLength = libraryRepresentativeItem?.playbackDuration ?? 0
             
-            let newLibraryAlbum = Album(title: newAlbumTitle, artist: newAlbumArtist, artwork: newAlbumArtwork)
+            let newLibraryMusic = Music(newMusicTitle, newMusicArtist, newMusicArtwork, newMusicLength)
             
-            albums.append(newLibraryAlbum)
+            musics.append(newLibraryMusic)
         })
     }
 }
