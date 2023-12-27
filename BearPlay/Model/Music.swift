@@ -19,5 +19,6 @@ class Music{
         self.artwork = albumImg
         self.length = length
     }
-
 }
+
+

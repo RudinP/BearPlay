@@ -14,6 +14,7 @@ class ViewController: UIViewController{
     @IBOutlet weak var nowPlayingTitle: UILabel!
     
     var selected: Music?
+    let formatter = DateComponentsFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         let music = MusicFetcher.instance.getMusic(at: indexPath.row)
         
         cell.titleLabel.text = music.title
-        cell.lengthLabel.text = music.length.formatted()
+        cell.lengthLabel.text = formatter.string(from: music.length)
         if let img = music.artwork{
             cell.albumImg.image = img
         }
