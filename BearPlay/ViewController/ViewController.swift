@@ -45,11 +45,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "musicCell", for: indexPath) as! MusicTableViewCell
         let music = MusicFetcher.instance.getMusic(at: indexPath.row)
         
-        cell.titleLabel.text = music.title
-        cell.lengthLabel.text = formatter.string(from: music.length)
-        if let img = music.artwork{
-            cell.albumImg.image = img
+        if music.title.count > 30 {
+            cell.titleLabel.text = String(music.title.prefix(30)) + "..."
+        } else {
+            cell.titleLabel.text = music.title
         }
+        cell.lengthLabel.text = formatter.string(from: music.length)
         
         return cell
     }
