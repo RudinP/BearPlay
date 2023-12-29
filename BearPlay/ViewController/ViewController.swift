@@ -11,6 +11,7 @@ class ViewController: UIViewController{
     
     @IBOutlet weak var musicTableView: UITableView!
     
+    @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var nowPlayingTitle: UILabel!
     
     var selected: Music?
@@ -51,13 +52,18 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
             cell.titleLabel.text = music.title
         }
         cell.lengthLabel.text = formatter.string(from: music.length)
+        cell.albumImg.alpha = 0
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selected = MusicFetcher.instance.getMusic(at: indexPath.row)
-        
+
         nowPlayingTitle.text = selected?.title
+        nowPlayingTitle.stopShowAll()
+        if nowPlayingTitle.bounds.size.width > titleView.bounds.size.width{
+            nowPlayingTitle.showAll()
+        }
     }
 }

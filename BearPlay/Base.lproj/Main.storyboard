@@ -43,11 +43,18 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="63n-Ix-adU" userLabel="Album Img">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="63n-Ix-adU" userLabel="Album Img">
                                                     <rect key="frame" x="20.333333333333336" y="15.666666666666666" width="23.333333333333332" height="18.666666666666668"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <imageReference key="image" image="music.quarternote.3" catalog="system" symbolScale="default"/>
+                                                    <imageReference key="image" image="music.quarternote.3" catalog="system" symbolScale="default" renderingMode="hierarchical" variableValue="0.0"/>
+                                                    <imageReference key="highlightedImage" image="music.quarternote.3" catalog="system" renderingMode="hierarchical">
+                                                        <hierarchicalColors>
+                                                            <color name="AccentColor"/>
+                                                            <color systemColor="secondaryLabelColor"/>
+                                                            <color systemColor="tertiaryLabelColor"/>
+                                                        </hierarchicalColors>
+                                                    </imageReference>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17" scale="default"/>
                                                 </imageView>
                                             </subviews>
@@ -69,14 +76,22 @@
                                     <rect key="frame" x="0.0" y="0.0" width="353" height="80"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="251" text="Label" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PG-X4-6L7" userLabel="Title">
-                                            <rect key="frame" x="8" y="10" width="160" height="60"/>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCg-aX-pK7">
+                                            <rect key="frame" x="0.0" y="0.0" width="181.66666666666666" height="80"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="251" text="" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PG-X4-6L7" userLabel="Title">
+                                                    <rect key="frame" x="0.0" y="40" width="0.0" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <lineBreakStrategy key="lineBreakStrategy"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="160" id="R8z-zQ-sR0"/>
+                                                <constraint firstItem="8PG-X4-6L7" firstAttribute="leading" secondItem="ZCg-aX-pK7" secondAttribute="leading" id="0eM-Jc-vZ3"/>
+                                                <constraint firstItem="8PG-X4-6L7" firstAttribute="centerY" secondItem="ZCg-aX-pK7" secondAttribute="centerY" id="B1N-xV-ZLH"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfu-al-3wO" userLabel="ToDetail">
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="80"/>
                                             <state key="normal" title="Button"/>
@@ -125,20 +140,20 @@
                                         </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="ZCg-aX-pK7" secondAttribute="bottom" id="39s-Dl-iHN"/>
                                         <constraint firstAttribute="bottom" secondItem="rfu-al-3wO" secondAttribute="bottom" id="BeG-4x-SX2"/>
                                         <constraint firstItem="hMY-5B-eEE" firstAttribute="leading" secondItem="wQ9-nT-ZlS" secondAttribute="trailing" id="Gdz-9Q-Say"/>
                                         <constraint firstItem="hMY-5B-eEE" firstAttribute="centerY" secondItem="g0k-jg-bfR" secondAttribute="centerY" id="JwC-zg-Oj8"/>
                                         <constraint firstAttribute="trailing" secondItem="rfu-al-3wO" secondAttribute="trailing" id="LlL-Ba-Nrc"/>
                                         <constraint firstAttribute="trailing" secondItem="hMY-5B-eEE" secondAttribute="trailing" id="Qfw-jx-NNx"/>
-                                        <constraint firstItem="8PG-X4-6L7" firstAttribute="top" secondItem="g0k-jg-bfR" secondAttribute="top" constant="10" id="Qr0-ld-Z5L"/>
                                         <constraint firstItem="wQ9-nT-ZlS" firstAttribute="leading" secondItem="aU9-cS-cru" secondAttribute="trailing" id="Sbw-xR-1jo"/>
                                         <constraint firstItem="rfu-al-3wO" firstAttribute="leading" secondItem="g0k-jg-bfR" secondAttribute="leading" id="btH-pW-lTr"/>
-                                        <constraint firstItem="aU9-cS-cru" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8PG-X4-6L7" secondAttribute="trailing" constant="29.670000000000002" id="h8d-RQ-MrE"/>
-                                        <constraint firstItem="8PG-X4-6L7" firstAttribute="leading" secondItem="g0k-jg-bfR" secondAttribute="leading" constant="8" id="lNb-uG-DSK"/>
-                                        <constraint firstItem="8PG-X4-6L7" firstAttribute="centerY" secondItem="g0k-jg-bfR" secondAttribute="centerY" id="mQH-DQ-YBM"/>
+                                        <constraint firstItem="ZCg-aX-pK7" firstAttribute="leading" secondItem="g0k-jg-bfR" secondAttribute="leading" id="cdY-zS-Ydx"/>
                                         <constraint firstItem="rfu-al-3wO" firstAttribute="top" secondItem="g0k-jg-bfR" secondAttribute="top" id="oHn-Vo-vwj"/>
+                                        <constraint firstItem="aU9-cS-cru" firstAttribute="leading" secondItem="ZCg-aX-pK7" secondAttribute="trailing" constant="16" id="oRn-6O-OVz"/>
                                         <constraint firstItem="wQ9-nT-ZlS" firstAttribute="centerY" secondItem="g0k-jg-bfR" secondAttribute="centerY" id="s9p-4X-OCl"/>
                                         <constraint firstItem="aU9-cS-cru" firstAttribute="centerY" secondItem="g0k-jg-bfR" secondAttribute="centerY" id="vu4-bj-OpI"/>
+                                        <constraint firstItem="ZCg-aX-pK7" firstAttribute="top" secondItem="g0k-jg-bfR" secondAttribute="top" id="xqo-iv-LAb"/>
                                     </constraints>
                                 </view>
                                 <constraints>
@@ -170,6 +185,7 @@
                     <connections>
                         <outlet property="musicTableView" destination="scE-ls-m17" id="cNQ-Rc-DPQ"/>
                         <outlet property="nowPlayingTitle" destination="8PG-X4-6L7" id="blr-Xz-rQW"/>
+                        <outlet property="titleView" destination="ZCg-aX-pK7" id="Mdd-zt-MGB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3P-QM-OQF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -345,6 +361,9 @@
         <image name="pause.fill" catalog="system" width="117" height="128"/>
         <image name="play" catalog="system" width="117" height="128"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -353,6 +372,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
