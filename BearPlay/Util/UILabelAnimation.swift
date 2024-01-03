@@ -10,15 +10,21 @@ import UIKit
 
 extension UILabel {
     func showAll(){
-        UIView.animate(withDuration: TimeInterval(self.bounds.size.width/12),
+        let superview = self.superview!
+        let duration = TimeInterval(self.bounds.width/32)
+        
+        if superview.bounds.width >= self.bounds.width{
+            return
+        }
+        
+        UIView.animate(withDuration: duration,
                        delay:0,
-                       options: [.repeat, .curveLinear],
+                       options: [.repeat, .curveLinear, .beginFromCurrentState],
         animations: {
-            self.center = CGPoint(x:0 - self.bounds.size.width/2, y:self.center.y)
+            self.center.x = superview.center.x + superview.bounds.width/2.0 - self.bounds.width/2.0 - 16
         })
     }
     func stopShowAll(){
-        self.center = CGPoint(x:self.center.x, y:self.center.y)
         self.layer.removeAllAnimations()
     }
 }

@@ -59,11 +59,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selected = MusicFetcher.instance.getMusic(at: indexPath.row)
-
+        
         nowPlayingTitle.text = selected?.title
+        nowPlayingTitle.showAll()
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         nowPlayingTitle.stopShowAll()
-        if nowPlayingTitle.bounds.size.width > titleView.bounds.size.width{
-            nowPlayingTitle.showAll()
-        }
     }
 }
