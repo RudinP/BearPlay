@@ -30,6 +30,8 @@ class DetailViewController: UIViewController {
         artistLabel.text = music?.artist ?? "anonymous"
         titleLabel.text = music?.title
         
+        titleLabel.showAll()
+        
         let formatter = DateComponentsFormatter()
         durationLabel.text = formatter.string(from: music?.length ?? 0)
     }

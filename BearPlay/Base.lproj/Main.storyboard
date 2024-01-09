@@ -214,25 +214,25 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="U9W-51-yXf">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U9W-51-yXf">
                                 <rect key="frame" x="96.666666666666686" y="453" width="200" height="4"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="o15-jM-YTF"/>
                                 </constraints>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUp-4t-dP4" userLabel="Backward">
-                                <rect key="frame" x="96" y="576" width="56" height="35"/>
+                                <rect key="frame" x="96" y="575.33333333333337" width="56" height="35.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="backward.fill" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUm-C0-CzM" userLabel="PlayPause">
-                                <rect key="frame" x="187" y="576" width="19.333333333333343" height="35"/>
+                                <rect key="frame" x="187" y="575.33333333333337" width="19.333333333333343" height="35.666666666666629"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="play.fill" catalog="system"/>
                                 <state key="selected" image="pause.fill" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOD-k5-Vse" userLabel="Forward">
-                                <rect key="frame" x="241.33333333333337" y="576" width="56" height="35"/>
+                                <rect key="frame" x="241.33333333333337" y="575.66666666666663" width="56" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="forward.fill" catalog="system"/>
                             </button>
@@ -242,14 +242,14 @@
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAA-PV-a17">
-                                <rect key="frame" x="180" y="514" width="33" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAA-PV-a17">
+                                <rect key="frame" x="180" y="514" width="33" height="20.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzX-rB-6dv" userLabel="Artist">
-                                <rect key="frame" x="176" y="540" width="41" height="21"/>
+                                <rect key="frame" x="176" y="539.33333333333337" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
@@ -264,11 +264,12 @@
                             <constraint firstItem="XAA-PV-a17" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QDF-sy-GRn" secondAttribute="leading" constant="71" id="Chy-Kg-HZq"/>
                             <constraint firstItem="Su3-5e-IIn" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="Dq1-ZW-Iij"/>
                             <constraint firstItem="QDF-sy-GRn" firstAttribute="leading" relation="lessThanOrEqual" secondItem="dzX-rB-6dv" secondAttribute="leading" constant="71" id="I32-Kp-58T"/>
-                            <constraint firstItem="Su3-5e-IIn" firstAttribute="top" secondItem="QDF-sy-GRn" secondAttribute="top" constant="170" id="Jb4-ns-kUE"/>
+                            <constraint firstItem="Su3-5e-IIn" firstAttribute="top" relation="lessThanOrEqual" secondItem="QDF-sy-GRn" secondAttribute="top" constant="170" id="Jb4-ns-kUE"/>
                             <constraint firstItem="U9W-51-yXf" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="KtF-I6-w0D"/>
                             <constraint firstItem="Xaz-v8-HJG" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="On0-4q-fWO"/>
                             <constraint firstItem="dzX-rB-6dv" firstAttribute="top" secondItem="XAA-PV-a17" secondAttribute="bottom" constant="5" id="Qgw-hA-Sj2"/>
                             <constraint firstItem="GUm-C0-CzM" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="RKk-tE-OFd"/>
+                            <constraint firstItem="QDF-sy-GRn" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="GUm-C0-CzM" secondAttribute="bottom" constant="182" id="RYB-cZ-s3E"/>
                             <constraint firstItem="eUp-4t-dP4" firstAttribute="top" secondItem="GUm-C0-CzM" secondAttribute="top" id="ReQ-jL-ACF"/>
                             <constraint firstItem="XAA-PV-a17" firstAttribute="centerX" secondItem="tYv-Y2-thu" secondAttribute="centerX" id="Wee-hP-5pd"/>
                             <constraint firstItem="GUm-C0-CzM" firstAttribute="top" secondItem="dzX-rB-6dv" secondAttribute="bottom" constant="15" id="cWU-cT-cpA"/>
