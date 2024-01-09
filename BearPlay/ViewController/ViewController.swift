@@ -26,10 +26,9 @@ class ViewController: UIViewController{
         
         musicTableView.dataSource = self
         musicTableView.delegate = self
-        
+                
         MusicFetcher.instance.refreshMusics()
 }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailViewController{
             vc.music = selected
@@ -56,15 +55,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         
         return cell
     }
-    
+        
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selected = MusicFetcher.instance.getMusic(at: indexPath.row)
-        
         nowPlayingTitle.text = selected?.title
+        nowPlayingTitle.layer.layoutIfNeeded()
+
         nowPlayingTitle.showAll()
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        nowPlayingTitle.stopShowAll()
     }
 }

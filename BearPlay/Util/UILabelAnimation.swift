@@ -10,6 +10,8 @@ import UIKit
 
 extension UILabel {
     func showAll(){
+        self.layer.removeAllAnimations()
+        
         let superview = self.superview!
         let duration = TimeInterval(self.bounds.width/32)
         
@@ -23,8 +25,5 @@ extension UILabel {
         animations: {
             self.center.x = superview.center.x + superview.bounds.width/2.0 - self.bounds.width/2.0 - 16
         })
-    }
-    func stopShowAll(){
-        self.layer.removeAllAnimations()
     }
 }
