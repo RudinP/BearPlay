@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B1DF96F2B4E56CB00AC6429 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1DF96E2B4E56CB00AC6429 /* Formatter.swift */; };
 		4B25B16C2B105BEA008A639B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B25B16B2B105BEA008A639B /* AppDelegate.swift */; };
 		4B25B16E2B105BEA008A639B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B25B16D2B105BEA008A639B /* SceneDelegate.swift */; };
 		4B25B1732B105BEA008A639B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B25B1712B105BEA008A639B /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4B1DF96E2B4E56CB00AC6429 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		4B25B1682B105BEA008A639B /* BearPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BearPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B25B16B2B105BEA008A639B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B25B16D2B105BEA008A639B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				4B428C6A2B297C0E007F90E9 /* MusicFetcher.swift */,
 				4B5F2E352B3E878F0098E363 /* UILabelAnimation.swift */,
+				4B1DF96E2B4E56CB00AC6429 /* Formatter.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				4BD1633E2B243AB3002F8F8D /* MusicTableViewCell.swift in Sources */,
 				4B428C6B2B297C0E007F90E9 /* MusicFetcher.swift in Sources */,
 				4BD1633C2B243833002F8F8D /* ViewController.swift in Sources */,
+				4B1DF96F2B4E56CB00AC6429 /* Formatter.swift in Sources */,
 				4B25B16C2B105BEA008A639B /* AppDelegate.swift in Sources */,
 				4B25B16E2B105BEA008A639B /* SceneDelegate.swift in Sources */,
 				4BD163362B242C47002F8F8D /* Music.swift in Sources */,
@@ -463,6 +467,7 @@
 				INFOPLIST_FILE = BearPlay/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BearPlay;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Apple Music에 접근하기 위한 사용자 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -474,7 +479,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Rd.BearPlay;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Rd.BearPlay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -495,6 +500,7 @@
 				INFOPLIST_FILE = BearPlay/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BearPlay;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Apple Music에 접근하기 위한 사용자 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -506,7 +512,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Rd.BearPlay;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Rd.BearPlay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -532,7 +538,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Rd.BearPlay.BearPlayWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Rd.BearPlay.BearPlayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -559,7 +565,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Rd.BearPlay.BearPlayWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Rd.BearPlay.BearPlayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

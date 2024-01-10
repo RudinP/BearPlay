@@ -14,7 +14,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var progressBar: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,19 +32,22 @@ class DetailViewController: UIViewController {
         
         titleLabel.showAll()
         
-        let formatter = DateComponentsFormatter()
-        durationLabel.text = formatter.string(from: music?.length ?? 0)
+        initSlider()
+        
+        //durationLabel.text = formatter.string(from: music?.length ?? 0)
+        durationLabel.text = TimeInterval(progressBar.value).toString()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func initSlider(){
+        progressBar.maximumValue = Float(music?.length ?? 0)
+        progressBar.setThumbImage(UIImage(named:"thumbImg"), for: .highlighted)
+        progressBar.setThumbImage(UIImage(named:"thumbImg"), for: .normal)
     }
-    */
-
+    
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        let value = sender.value
+        durationLabel.text = ((music?.length ?? 0) * Double((value/progressBar.maximumValue))).toString()
+    }
+    
 }
+
