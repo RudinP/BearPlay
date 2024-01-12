@@ -15,7 +15,7 @@ class ViewController: UIViewController{
     @IBOutlet weak var nowPlayingTitle: UILabel!
     
     var selected: Music?
-    let formatter = DateComponentsFormatter()
+    var selectedIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         } else {
             cell.titleLabel.text = music.title
         }
-        cell.lengthLabel.text = formatter.string(from: music.length)
+        cell.lengthLabel.text = music.length.toString()
         cell.albumImg.alpha = 0
         
         return cell
@@ -58,9 +58,18 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selected = MusicFetcher.instance.getMusic(at: indexPath.row)
+        selectedIndex = indexPath.row
+    
         nowPlayingTitle.text = selected?.title
         nowPlayingTitle.layer.layoutIfNeeded()
 
         nowPlayingTitle.showAll()
     }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if selectedIndex == indexPath.row{
+                return nil
+            }
+            return indexPath
+        }
 }
