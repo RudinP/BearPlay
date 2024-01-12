@@ -16,9 +16,12 @@ class ViewController: UIViewController{
     
     var selected: Music?
     var selectedIndex: Int?
+    var player: MusicPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        player = MusicPlayer()
 
         let searchController = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController = searchController
@@ -64,6 +67,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         nowPlayingTitle.layer.layoutIfNeeded()
 
         nowPlayingTitle.showAll()
+        
+        if let song = selected{
+            if let file = song.file{
+                player?.play(file)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
