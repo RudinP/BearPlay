@@ -7,6 +7,10 @@ class MusicPlayer{
         player.setQueue(with: MPMediaQuery.songs())
     }
     
+    func getNowPlaying() -> MPMediaItem?{
+        return player.nowPlayingItem ?? nil
+    }
+    
     func play(_ song:MPMediaItem?){
         player.stop()
         player.nowPlayingItem = song

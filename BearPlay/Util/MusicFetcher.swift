@@ -31,6 +31,10 @@ class MusicFetcher{
         self.setMusics()
     }
     
+    func indexForMusic(_ id: UInt64) -> Int{
+       return musics.firstIndex(where: { $0.id == id }) ?? -1
+    }
+    
     private func makeMusicsQuery(){
         if let collections = MPMediaQuery.songs().collections{
             self.musicsCollection = collections

@@ -14,6 +14,8 @@ class ViewController: UIViewController{
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var nowPlayingTitle: UILabel!
     
+    @IBOutlet weak var playPauseBtn: UIButton!
+
     var selected: Music?
     var selectedIndex: Int?
     var player: MusicPlayer?
@@ -31,11 +33,66 @@ class ViewController: UIViewController{
         musicTableView.delegate = self
                 
         MusicFetcher.instance.refreshMusics()
+        
+        initPlayPauseBtn()
 }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailViewController{
             vc.music = selected
         }
+    }
+    
+    func initPlayPauseBtn(){
+        playPauseBtn.setImage(UIImage(systemName: "pause.fill"), for: .selected)
+        playPauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+    }
+    
+    @IBAction func toBackward(_ sender: Any) {
+        player?.backward()
+        syncSelectedRow()
+    }
+    
+    @IBAction func playPause(_ sender: Any) {
+        if(playPauseBtn.isSelected){
+            player?.pause()
+            playPauseBtn.isSelected = false
+        } else {
+            if (selected != nil){
+                player?.resume()
+                playPauseBtn.isSelected = true
+            } else {
+                let index = Int.random(in: 0...MusicFetcher.instance.getMusicsCount())
+                selected = MusicFetcher.instance.getMusic(at: index)
+                
+                player?.play(selected?.file)
+                syncSelectedRow()
+            }
+        }
+    }
+    @IBAction func toForward(_ sender: Any) {
+        player?.forward()
+        syncSelectedRow()
+    }
+    
+    func syncSelectedRow(){
+        let nowPlaying = player?.getNowPlaying()
+
+        if let music = nowPlaying{
+            let index = MusicFetcher.instance.indexForMusic(music.persistentID)
+            musicTableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .none)
+            
+            selected = MusicFetcher.instance.getMusic(at: index)
+            selectedIndex = index
+            
+            startNowPlayingTitleAnim()
+            }
+    }
+    
+    func startNowPlayingTitleAnim(){
+        nowPlayingTitle.text = selected?.title
+        nowPlayingTitle.layer.layoutIfNeeded()
+
+        nowPlayingTitle.showAll()
     }
 }
 
@@ -63,14 +120,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         selected = MusicFetcher.instance.getMusic(at: indexPath.row)
         selectedIndex = indexPath.row
     
-        nowPlayingTitle.text = selected?.title
-        nowPlayingTitle.layer.layoutIfNeeded()
-
-        nowPlayingTitle.showAll()
+        startNowPlayingTitleAnim()
         
         if let song = selected{
             if let file = song.file{
                 player?.play(file)
+                playPauseBtn.isSelected = true
             }
         }
     }
@@ -82,3 +137,4 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
             return indexPath
         }
 }
+

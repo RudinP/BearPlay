@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -100,18 +101,21 @@
                                                 <segue destination="C17-L1-pqP" kind="presentation" id="XnW-ep-zHc"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aU9-cS-cru" userLabel="BackwardBtn">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aU9-cS-cru" userLabel="BackwardBtn">
                                             <rect key="frame" x="197.66666666666666" y="15" width="56" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="bZV-Ff-w3q"/>
                                             </constraints>
                                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="backward" catalog="system">
-                                                <color key="baseForegroundColor" systemColor="secondaryLabelColor"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="backward.fill" catalog="system">
+                                                <color key="baseForegroundColor" name="AccentColor"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="toBackward:" destination="MFs-2M-pK6" eventType="touchUpInside" id="sfe-rt-Rre"/>
+                                            </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQ9-nT-ZlS" userLabel="PlayPauseBtn">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQ9-nT-ZlS" userLabel="PlayPauseBtn">
                                             <rect key="frame" x="253.66666666666671" y="15" width="43.333333333333343" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="GMV-vp-dh3"/>
@@ -120,13 +124,19 @@
                                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal">
-                                                <color key="titleColor" systemColor="secondaryLabelColor"/>
-                                                <imageReference key="image" image="play" catalog="system" variableValue="0.0"/>
+                                                <imageReference key="image" image="play.fill" catalog="system" variableValue="0.0"/>
                                             </state>
                                             <state key="selected" image="pause" catalog="system"/>
                                             <state key="highlighted" image="play.fill" catalog="system"/>
+                                            <buttonConfiguration key="configuration" style="plain">
+                                                <imageReference key="image" image="play.fill" catalog="system" variableValue="0.0"/>
+                                                <color key="baseForegroundColor" name="AccentColor"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="playPause:" destination="MFs-2M-pK6" eventType="touchUpInside" id="1Jn-22-ctG"/>
+                                            </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMY-5B-eEE" userLabel="ForwardBtn">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMY-5B-eEE" userLabel="ForwardBtn">
                                             <rect key="frame" x="297" y="15" width="56" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="56" id="SeL-tY-Kfz"/>
@@ -134,9 +144,12 @@
                                             </constraints>
                                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="forward" catalog="system">
-                                                <color key="baseForegroundColor" systemColor="secondaryLabelColor"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="forward.fill" catalog="system">
+                                                <color key="baseForegroundColor" name="AccentColor"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="toForward:" destination="MFs-2M-pK6" eventType="touchUpInside" id="kGj-5T-Ynh"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -185,6 +198,7 @@
                     <connections>
                         <outlet property="musicTableView" destination="scE-ls-m17" id="cNQ-Rc-DPQ"/>
                         <outlet property="nowPlayingTitle" destination="8PG-X4-6L7" id="blr-Xz-rQW"/>
+                        <outlet property="playPauseBtn" destination="wQ9-nT-ZlS" id="Zpv-C3-OTk"/>
                         <outlet property="titleView" destination="ZCg-aX-pK7" id="Mdd-zt-MGB"/>
                     </connections>
                 </viewController>
@@ -221,21 +235,24 @@
                                     <action selector="sliderValueChanged:" destination="C17-L1-pqP" eventType="valueChanged" id="F4H-Ve-Nle"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUp-4t-dP4" userLabel="Backward">
-                                <rect key="frame" x="96" y="576.66666666666663" width="56" height="34.333333333333371"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUp-4t-dP4" userLabel="Backward">
+                                <rect key="frame" x="96" y="576.66666666666663" width="44" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="backward.fill" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="backward" catalog="system"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUm-C0-CzM" userLabel="PlayPause">
-                                <rect key="frame" x="187" y="576.66666666666663" width="19.333333333333343" height="34.333333333333371"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUm-C0-CzM" userLabel="PlayPause">
+                                <rect key="frame" x="175" y="576.66666666666663" width="43.333333333333343" height="34.333333333333371"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="play.fill" catalog="system"/>
+                                <state key="normal" image="play" catalog="system"/>
                                 <state key="selected" image="pause.fill" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="play" catalog="system">
+                                    <color key="baseForegroundColor" name="AccentColor"/>
+                                </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOD-k5-Vse" userLabel="Forward">
-                                <rect key="frame" x="241.33333333333337" y="576.33333333333337" width="56" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOD-k5-Vse" userLabel="Forward">
+                                <rect key="frame" x="253.33333333333337" y="576.33333333333337" width="56" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="forward.fill" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="forward" catalog="system"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xaz-v8-HJG" userLabel="Duration">
                                 <rect key="frame" x="173.66666666666666" y="476.33333333333331" width="46" height="21"/>
