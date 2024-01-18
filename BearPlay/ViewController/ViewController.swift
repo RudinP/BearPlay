@@ -39,6 +39,8 @@ class ViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailViewController{
             vc.music = selected
+            vc.player = player
+            vc.isPlaying = playPauseBtn.isSelected
         }
     }
     

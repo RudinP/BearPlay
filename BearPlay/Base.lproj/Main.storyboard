@@ -243,6 +243,9 @@
                                 <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="backward" catalog="system"/>
+                                <connections>
+                                    <action selector="toBackward:" destination="C17-L1-pqP" eventType="touchUpInside" id="zDB-mZ-CkA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUm-C0-CzM" userLabel="PlayPause">
                                 <rect key="frame" x="175" y="576.66666666666663" width="43.333333333333343" height="34.333333333333371"/>
@@ -254,12 +257,18 @@
                                     <color key="baseForegroundColor" name="AccentColor"/>
                                     <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="playPause:" destination="C17-L1-pqP" eventType="touchUpInside" id="slW-5Z-0oC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOD-k5-Vse" userLabel="Forward">
                                 <rect key="frame" x="253.33333333333337" y="576.33333333333337" width="56" height="35"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="forward" catalog="system"/>
+                                <connections>
+                                    <action selector="toForward:" destination="C17-L1-pqP" eventType="touchUpInside" id="1nt-Lb-wxL"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xaz-v8-HJG" userLabel="Duration">
                                 <rect key="frame" x="173.66666666666666" y="476.33333333333331" width="46" height="21"/>
@@ -315,6 +324,7 @@
                         <outlet property="artistLabel" destination="dzX-rB-6dv" id="AOa-mM-HKN"/>
                         <outlet property="durationLabel" destination="Xaz-v8-HJG" id="5tj-Om-JcQ"/>
                         <outlet property="musicImg" destination="Su3-5e-IIn" id="P7E-3i-dQT"/>
+                        <outlet property="playPauseBtn" destination="GUm-C0-CzM" id="6Ce-IX-NJf"/>
                         <outlet property="progressBar" destination="js1-ul-Q19" id="Jlp-gC-iO0"/>
                         <outlet property="titleLabel" destination="XAA-PV-a17" id="kiq-wr-qrh"/>
                     </connections>

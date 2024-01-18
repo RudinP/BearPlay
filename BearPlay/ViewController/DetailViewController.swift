@@ -10,17 +10,22 @@ import UIKit
 class DetailViewController: UIViewController {
 
     var music: Music?
+    var player: MusicPlayer?
+    var isPlaying: Bool?
+    
     @IBOutlet weak var musicImg: UIImageView!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var progressBar: UISlider!
+    @IBOutlet weak var playPauseBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setView()
         // Do any additional setup after loading the view.
+        initPlayPauseBtn()
     }
     
     func setView(){
@@ -34,7 +39,6 @@ class DetailViewController: UIViewController {
         
         initSlider()
         
-        //durationLabel.text = formatter.string(from: music?.length ?? 0)
         durationLabel.text = TimeInterval(progressBar.value).toString()
     }
     
@@ -44,10 +48,61 @@ class DetailViewController: UIViewController {
         progressBar.setThumbImage(UIImage(named:"thumbImg"), for: .normal)
     }
     
+    func initPlayPauseBtn(){
+        playPauseBtn.setImage(UIImage(systemName: "pause"), for: .selected)
+        playPauseBtn.setImage(UIImage(systemName: "play"), for: .normal)
+        
+        if(isPlaying!){
+            playPauseBtn.isSelected = true
+        } else {
+            playPauseBtn.isSelected = false
+        }
+    }
+    
+    func nowPlayingToMusic() -> Music?{
+        if let nowPlayingID = player?.getNowPlaying()?.persistentID{
+            let index = MusicFetcher.instance.indexForMusic(nowPlayingID)
+            music = MusicFetcher.instance.getMusic(at: index)
+            
+            return music
+        } else {
+            return nil
+        }
+    }
+    
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         let value = sender.value
         durationLabel.text = ((music?.length ?? 0) * Double((value/progressBar.maximumValue))).toString()
     }
     
+    @IBAction func toBackward(_ sender: Any) {
+        player?.backward()
+        music = nowPlayingToMusic()
+        setView()
+    }
+    
+    @IBAction func playPause(_ sender: Any) {
+        if(playPauseBtn.isSelected){
+            player?.pause()
+            playPauseBtn.isSelected = false
+        } else {
+            if (music != nil){
+                player?.resume()
+                playPauseBtn.isSelected = true
+            } else {
+                let index = Int.random(in: 0...MusicFetcher.instance.getMusicsCount())
+                music = MusicFetcher.instance.getMusic(at: index)
+                playPauseBtn.isSelected = true
+                player?.play(music?.file)
+            }
+        }
+        music = nowPlayingToMusic()
+        setView()
+    }
+    @IBAction func toForward(_ sender: Any) {
+        player?.forward()
+        music = nowPlayingToMusic()
+        setView()
+    }
 }
 
