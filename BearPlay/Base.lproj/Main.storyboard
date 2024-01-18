@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -105,10 +106,10 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="bZV-Ff-w3q"/>
                                             </constraints>
-                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" name="AccentColor"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain">
-                                                <imageReference key="image" image="backward.fill" catalog="system" renderingMode="original"/>
+                                                <imageReference key="image" image="backward.fill" catalog="system"/>
                                                 <color key="baseForegroundColor" name="AccentColor"/>
                                             </buttonConfiguration>
                                             <connections>
@@ -121,7 +122,7 @@
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="GMV-vp-dh3"/>
                                                 <constraint firstAttribute="width" constant="43.329999999999998" id="Gy9-td-2qy"/>
                                             </constraints>
-                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" name="AccentColor"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal">
                                                 <imageReference key="image" image="play.fill" catalog="system" variableValue="0.0"/>
@@ -129,7 +130,7 @@
                                             <state key="selected" image="pause" catalog="system"/>
                                             <state key="highlighted" image="play.fill" catalog="system"/>
                                             <buttonConfiguration key="configuration" style="tinted">
-                                                <imageReference key="image" image="play.fill" catalog="system" renderingMode="original" variableValue="0.0"/>
+                                                <imageReference key="image" image="play.fill" catalog="system" variableValue="0.0"/>
                                                 <color key="baseForegroundColor" name="AccentColor"/>
                                                 <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </buttonConfiguration>
@@ -143,10 +144,10 @@
                                                 <constraint firstAttribute="width" constant="56" id="SeL-tY-Kfz"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="fWP-Zj-F6M"/>
                                             </constraints>
-                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" name="AccentColor"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain">
-                                                <imageReference key="image" image="forward.fill" catalog="system" renderingMode="original"/>
+                                                <imageReference key="image" image="forward.fill" catalog="system"/>
                                                 <color key="baseForegroundColor" name="AccentColor"/>
                                             </buttonConfiguration>
                                             <connections>
@@ -239,11 +240,13 @@
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUp-4t-dP4" userLabel="Backward">
                                 <rect key="frame" x="96" y="576.66666666666663" width="44" height="34.333333333333371"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="backward" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUm-C0-CzM" userLabel="PlayPause">
                                 <rect key="frame" x="175" y="576.66666666666663" width="43.333333333333343" height="34.333333333333371"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="play" catalog="system"/>
                                 <state key="selected" image="pause.fill" catalog="system"/>
@@ -254,6 +257,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOD-k5-Vse" userLabel="Forward">
                                 <rect key="frame" x="253.33333333333337" y="576.33333333333337" width="56" height="35"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="forward" catalog="system"/>
                             </button>
