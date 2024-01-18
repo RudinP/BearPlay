@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -108,7 +107,8 @@
                                             </constraints>
                                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="backward.fill" catalog="system">
+                                            <buttonConfiguration key="configuration" style="plain">
+                                                <imageReference key="image" image="backward.fill" catalog="system" renderingMode="original"/>
                                                 <color key="baseForegroundColor" name="AccentColor"/>
                                             </buttonConfiguration>
                                             <connections>
@@ -128,9 +128,10 @@
                                             </state>
                                             <state key="selected" image="pause" catalog="system"/>
                                             <state key="highlighted" image="play.fill" catalog="system"/>
-                                            <buttonConfiguration key="configuration" style="plain">
-                                                <imageReference key="image" image="play.fill" catalog="system" variableValue="0.0"/>
+                                            <buttonConfiguration key="configuration" style="tinted">
+                                                <imageReference key="image" image="play.fill" catalog="system" renderingMode="original" variableValue="0.0"/>
                                                 <color key="baseForegroundColor" name="AccentColor"/>
+                                                <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </buttonConfiguration>
                                             <connections>
                                                 <action selector="playPause:" destination="MFs-2M-pK6" eventType="touchUpInside" id="1Jn-22-ctG"/>
@@ -144,7 +145,8 @@
                                             </constraints>
                                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="forward.fill" catalog="system">
+                                            <buttonConfiguration key="configuration" style="plain">
+                                                <imageReference key="image" image="forward.fill" catalog="system" renderingMode="original"/>
                                                 <color key="baseForegroundColor" name="AccentColor"/>
                                             </buttonConfiguration>
                                             <connections>
@@ -245,8 +247,9 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="play" catalog="system"/>
                                 <state key="selected" image="pause.fill" catalog="system"/>
-                                <buttonConfiguration key="configuration" style="plain" image="play" catalog="system">
+                                <buttonConfiguration key="configuration" style="tinted" image="play" catalog="system">
                                     <color key="baseForegroundColor" name="AccentColor"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOD-k5-Vse" userLabel="Forward">

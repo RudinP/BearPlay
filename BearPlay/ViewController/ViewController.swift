@@ -63,7 +63,7 @@ class ViewController: UIViewController{
             } else {
                 let index = Int.random(in: 0...MusicFetcher.instance.getMusicsCount())
                 selected = MusicFetcher.instance.getMusic(at: index)
-                
+                playPauseBtn.isSelected = true
                 player?.play(selected?.file)
                 syncSelectedRow()
             }
