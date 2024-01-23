@@ -6,6 +6,7 @@ class MusicPlayer{
     
     init() {
         player.setQueue(with: MPMediaQuery.songs())
+        player.beginGeneratingPlaybackNotifications()
     }
     
     func getNowPlaying() -> MPMediaItem?{

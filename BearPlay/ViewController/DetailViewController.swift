@@ -23,10 +23,14 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setView()
-        // Do any additional setup after loading the view.
+        
+        progressBar.setThumbImage(UIImage(named:"thumbImg"), for: .highlighted)
+        progressBar.setThumbImage(UIImage(named:"thumbImg"), for: .normal)
+        
         initPlayPauseBtn()
+        
+        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: { _ in self.setView() })
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             self.loadPlaybackTime()
@@ -34,6 +38,8 @@ class DetailViewController: UIViewController {
     }
     
     func setView(){
+        music = nowPlayingToMusic()
+        
         if let img = music?.artwork{
             musicImg.image = img
         }
@@ -48,10 +54,8 @@ class DetailViewController: UIViewController {
     }
     
     func initSlider(){
-        progressBar.maximumValue = Float(music?.length ?? 0)
-        progressBar.setThumbImage(UIImage(named:"thumbImg"), for: .highlighted)
-        progressBar.setThumbImage(UIImage(named:"thumbImg"), for: .normal)
         loadPlaybackTime()
+        progressBar.maximumValue = Float(music?.length ?? 0)
     }
     
     func initPlayPauseBtn(){
@@ -93,7 +97,6 @@ class DetailViewController: UIViewController {
     @IBAction func toBackward(_ sender: Any) {
         player?.backward()
         music = nowPlayingToMusic()
-        setView()
     }
     
     @IBAction func playPause(_ sender: Any) {
@@ -111,13 +114,10 @@ class DetailViewController: UIViewController {
                 player?.play(music?.file)
             }
         }
-        music = nowPlayingToMusic()
-        setView()
     }
     @IBAction func toForward(_ sender: Any) {
         player?.forward()
         music = nowPlayingToMusic()
-        setView()
     }
 }
 

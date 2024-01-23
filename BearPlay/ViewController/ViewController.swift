@@ -24,18 +24,20 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         
         player = MusicPlayer()
-
+        
         let searchController = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
         
         musicTableView.dataSource = self
         musicTableView.delegate = self
-                
+        
         MusicFetcher.instance.refreshMusics()
         
         initPlayPauseBtn()
-}
+        
+        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: { _ in self.syncSelectedRow() })
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailViewController{
             vc.music = selected
@@ -51,7 +53,6 @@ class ViewController: UIViewController{
     
     @IBAction func toBackward(_ sender: Any) {
         player?.backward()
-        syncSelectedRow()
     }
     
     @IBAction func playPause(_ sender: Any) {
@@ -67,19 +68,16 @@ class ViewController: UIViewController{
                 selected = MusicFetcher.instance.getMusic(at: index)
                 playPauseBtn.isSelected = true
                 player?.play(selected?.file)
-                syncSelectedRow()
             }
         }
     }
     @IBAction func toForward(_ sender: Any) {
         player?.forward()
-        syncSelectedRow()
     }
     
     func syncSelectedRow(){
-        let nowPlaying = player?.getNowPlaying()
-
-        if let music = nowPlaying{
+        print("called")
+        if let music = player?.getNowPlaying(){
             let index = MusicFetcher.instance.indexForMusic(music.persistentID)
             musicTableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .none)
             
@@ -121,9 +119,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selected = MusicFetcher.instance.getMusic(at: indexPath.row)
         selectedIndex = indexPath.row
-    
-        startNowPlayingTitleAnim()
-        
+            
         if let song = selected{
             if let file = song.file{
                 player?.play(file)
