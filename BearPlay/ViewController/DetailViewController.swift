@@ -21,12 +21,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var progressBar: UISlider!
     @IBOutlet weak var playPauseBtn: UIButton!
         
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: { _ in self.setView() })
-    }
-
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
@@ -44,6 +38,8 @@ class DetailViewController: UIViewController {
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             self.loadPlaybackTime()
             })
+        
+        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: {[weak self] _ in self?.setView() })
     }
     
     func setView(){

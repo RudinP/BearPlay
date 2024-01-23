@@ -19,13 +19,7 @@ class ViewController: UIViewController{
     var selected: Music?
     var selectedIndex: Int?
     var player: MusicPlayer?
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: { _ in self.syncSelectedRow() })
-    }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
@@ -46,6 +40,8 @@ class ViewController: UIViewController{
         MusicFetcher.instance.refreshMusics()
         
         initPlayPauseBtn()
+        
+        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: {[weak self] _ in self?.syncSelectedRow() })
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
