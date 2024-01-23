@@ -9,6 +9,10 @@ class MusicPlayer{
         player.beginGeneratingPlaybackNotifications()
     }
     
+    deinit{
+        player.endGeneratingPlaybackNotifications()
+    }
+    
     func getNowPlaying() -> MPMediaItem?{
         return player.nowPlayingItem ?? nil
     }

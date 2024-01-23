@@ -20,6 +20,17 @@ class ViewController: UIViewController{
     var selectedIndex: Int?
     var player: MusicPlayer?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: { _ in self.syncSelectedRow() })
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +47,6 @@ class ViewController: UIViewController{
         
         initPlayPauseBtn()
         
-        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: { _ in self.syncSelectedRow() })
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailViewController{
@@ -45,6 +55,7 @@ class ViewController: UIViewController{
             vc.isPlaying = playPauseBtn.isSelected
         }
     }
+    
     
     func initPlayPauseBtn(){
         playPauseBtn.setImage(UIImage(systemName: "pause.fill"), for: .selected)

@@ -20,6 +20,17 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var progressBar: UISlider!
     @IBOutlet weak var playPauseBtn: UIButton!
+        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: { _ in self.setView() })
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +41,13 @@ class DetailViewController: UIViewController {
         
         initPlayPauseBtn()
         
-        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: { _ in self.setView() })
-        
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             self.loadPlaybackTime()
             })
     }
     
     func setView(){
+        print("yes")
         music = nowPlayingToMusic()
         
         if let img = music?.artwork{
