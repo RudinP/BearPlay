@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
     var music: Music?
     var player: MusicPlayer?
     var isPlaying: Bool?
+    var timer : Timer?
     
     @IBOutlet weak var musicImg: UIImageView!
     @IBOutlet weak var artistLabel: UILabel!
@@ -26,6 +27,10 @@ class DetailViewController: UIViewController {
         setView()
         // Do any additional setup after loading the view.
         initPlayPauseBtn()
+        
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+            self.loadPlaybackTime()
+            })
     }
     
     func setView(){
@@ -46,6 +51,7 @@ class DetailViewController: UIViewController {
         progressBar.maximumValue = Float(music?.length ?? 0)
         progressBar.setThumbImage(UIImage(named:"thumbImg"), for: .highlighted)
         progressBar.setThumbImage(UIImage(named:"thumbImg"), for: .normal)
+        loadPlaybackTime()
     }
     
     func initPlayPauseBtn(){
@@ -70,9 +76,18 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func loadPlaybackTime(){
+        if let now = player?.getCurrentPlaybackTime(){
+            progressBar.setValue(Float(now), animated: true)
+            durationLabel.text = player?.getCurrentPlaybackTime().toString()
+        }
+    }
+    
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         let value = sender.value
-        durationLabel.text = ((music?.length ?? 0) * Double((value/progressBar.maximumValue))).toString()
+        
+        player?.setCurrentPlaybackTime(TimeInterval(value))
+        durationLabel.text = player?.getCurrentPlaybackTime().toString()
     }
     
     @IBAction func toBackward(_ sender: Any) {
