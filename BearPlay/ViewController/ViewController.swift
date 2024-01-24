@@ -19,10 +19,14 @@ class ViewController: UIViewController{
     var selected: Music?
     var selectedIndex: Int?
     var player: MusicPlayer?
+    var token: NSObjectProtocol?
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
+        
+        if let token = token{
+            NotificationCenter.default.removeObserver(token)
+        }
     }
 
     override func viewDidLoad() {
@@ -41,7 +45,7 @@ class ViewController: UIViewController{
         
         initPlayPauseBtn()
         
-        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: {[weak self] _ in self?.syncSelectedRow() })
+        token = NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: {[weak self] _ in self?.syncSelectedRow();print("called") })
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -83,7 +87,6 @@ class ViewController: UIViewController{
     }
     
     func syncSelectedRow(){
-        print("called")
         if let music = player?.getNowPlaying(){
             let index = MusicFetcher.instance.indexForMusic(music.persistentID)
             musicTableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .none)

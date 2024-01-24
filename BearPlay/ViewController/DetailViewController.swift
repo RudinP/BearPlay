@@ -14,6 +14,8 @@ class DetailViewController: UIViewController {
     var isPlaying: Bool?
     var timer : Timer?
     
+    var token: NSObjectProtocol?
+    
     @IBOutlet weak var musicImg: UIImageView!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -23,7 +25,10 @@ class DetailViewController: UIViewController {
         
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
+        
+        if let token = token{
+            NotificationCenter.default.removeObserver(token)
+        }
     }
     
     override func viewDidLoad() {
@@ -39,11 +44,10 @@ class DetailViewController: UIViewController {
             self.loadPlaybackTime()
             })
         
-        NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: {[weak self] _ in self?.setView() })
+        token = NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: {[weak self] _ in self?.setView();print("yes") })
     }
     
     func setView(){
-        print("yes")
         music = nowPlayingToMusic()
         
         if let img = music?.artwork{
