@@ -22,6 +22,10 @@ class MusicFetcher{
         return musics[index]
     }
     
+    func getMusic(by id: UInt64) -> Music{
+        return musics.first(where: { $0.id == id } ) ?? Music("","",UIImage(),0,nil)
+    }
+    
     func getMusicsCount() -> Int{
         return musics.count
     }

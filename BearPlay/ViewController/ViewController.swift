@@ -45,7 +45,7 @@ class ViewController: UIViewController{
         
         initPlayPauseBtn()
         
-        token = NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: {[weak self] _ in self?.syncSelectedRow();print("called") })
+        token = NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: {[weak self] _ in self?.syncSelectedRow()})
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

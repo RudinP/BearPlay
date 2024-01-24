@@ -16,14 +16,12 @@ extension UILabel {
             if superview.bounds.width >= self.bounds.width{
                 return
             }
-            
-            if(self.layer.animationKeys()?.count ?? 0 > 0){ return }
 
             let duration = TimeInterval(self.bounds.width/32)
             
             UIView.animate(withDuration: duration,
                            delay:0,
-                           options: [.repeat, .curveLinear, .beginFromCurrentState],
+                           options: [.repeat, .curveLinear],
             animations: {
                 self.center.x = superview.center.x + superview.bounds.width/2.0 - self.bounds.width/2.0 - 16
             })

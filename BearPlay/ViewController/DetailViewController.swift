@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
             NotificationCenter.default.removeObserver(token)
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
@@ -40,11 +40,11 @@ class DetailViewController: UIViewController {
         
         initPlayPauseBtn()
         
+        token = NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: {[weak self] _ in self?.setView(); })
+        
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             self.loadPlaybackTime()
             })
-        
-        token = NotificationCenter.default.addObserver(forName: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil, queue: .main, using: {[weak self] _ in self?.setView();print("yes") })
     }
     
     func setView(){
@@ -81,9 +81,7 @@ class DetailViewController: UIViewController {
     
     func nowPlayingToMusic() -> Music?{
         if let nowPlayingID = player?.getNowPlaying()?.persistentID{
-            let index = MusicFetcher.instance.indexForMusic(nowPlayingID)
-            music = MusicFetcher.instance.getMusic(at: index)
-            
+            music = MusicFetcher.instance.getMusic(by: nowPlayingID)
             return music
         } else {
             return nil
@@ -92,16 +90,36 @@ class DetailViewController: UIViewController {
     
     func loadPlaybackTime(){
         if let now = player?.getCurrentPlaybackTime(){
-            progressBar.setValue(Float(now), animated: true)
-            durationLabel.text = player?.getCurrentPlaybackTime().toString()
+            progressBar.value = Float(now)
+            durationLabel.text = now.toString()
         }
     }
     
-    @IBAction func sliderValueChanged(_ sender: UISlider) {
+    @IBAction func sliderTouchUpInside(_ sender: UISlider) {
         let value = sender.value
         
         player?.setCurrentPlaybackTime(TimeInterval(value))
-        durationLabel.text = player?.getCurrentPlaybackTime().toString()
+        player?.resume()
+    }
+    
+    @IBAction func sliderTouchUpOutside(_ sender: UISlider) {
+        var value = sender.value
+        if(value > progressBar.maximumValue){
+            value = progressBar.maximumValue
+        } else if (value < 0){
+            value = 0
+        }
+        player?.setCurrentPlaybackTime(TimeInterval(value))
+        player?.resume()
+    }
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        player?.pause()
+        
+        var value = sender.value
+        if(value > progressBar.maximumValue){
+            value = progressBar.maximumValue
+        }
+        durationLabel.text = TimeInterval(value).toString()
     }
     
     @IBAction func toBackward(_ sender: Any) {
