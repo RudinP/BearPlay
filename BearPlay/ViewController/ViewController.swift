@@ -17,7 +17,13 @@ class ViewController: UIViewController{
     @IBOutlet weak var playPauseBtn: UIButton!
 
     var selected: Music?
-    var selectedIndex: Int?
+    var selectedIndex: Int?{
+        didSet{
+            if(oldValue != selectedIndex){
+                startNowPlayingTitleAnim()
+            }
+        }
+    }
     var player: MusicPlayer?
     var token: NSObjectProtocol?
 
@@ -93,15 +99,12 @@ class ViewController: UIViewController{
             
             selected = MusicFetcher.instance.getMusic(at: index)
             selectedIndex = index
-            
-            startNowPlayingTitleAnim()
-            }
+        }
     }
     
     func startNowPlayingTitleAnim(){
         nowPlayingTitle.text = selected?.title
         nowPlayingTitle.layer.layoutIfNeeded()
-
         nowPlayingTitle.showAll()
     }
 }
